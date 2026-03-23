@@ -3,10 +3,13 @@ import axios from 'axios';
 
 const app = express();
 app.use(express.json());
+
+// Health check
 app.get('/', (req, res) => {
   res.set('Cache-Control', 'no-store');
   res.send('OK WORKING');
 });
+
 const BASE_URL = "https://platform.higgsfield.ai";
 const API_KEY = process.env.HIGGS_API_KEY;
 
@@ -56,4 +59,4 @@ app.listen(PORT, () => {
   console.log(`MCP running on port ${PORT}`);
 });
 
-setInterval(() => { }, 1000);
+setInterval(() => {}, 1000);
